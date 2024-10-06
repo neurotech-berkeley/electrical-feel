@@ -1,0 +1,5 @@
+Charles' "ESP32 Dev Module" [DEFAULT] ESP32 Board MAC Address: 48:e7:29:97:18:14
+
+Conrad's "Adafruit ESP32 Feather": [DEFAULT] ESP32 Board MAC Address: 40:f5:20:46:23:24
+
+The name in quotes is the exact name of the board that you must pick in the board manager of the arduino ide
