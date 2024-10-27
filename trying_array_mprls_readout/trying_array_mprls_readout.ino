@@ -1,8 +1,6 @@
 #include <Wire.h>
 #include <Adafruit_MPRLS.h>
 
-// are the data pins being used 
-
 #define TCA_ADDR 0x70 // I2C address of TCA9548A
 #define RESET_PIN  -1  // not using reset pin
 #define EOC_PIN    -1  // not using EOC pin
@@ -33,20 +31,19 @@ void setup() {
       Serial.println(" found.");
     }
   }
-  
 }
 
 void loop() {
-  Serial.println("Hello, world!");
-  delay(5000);
-  
+  unsigned long startTime = millis();
   for (int i = 5; i < 8; i++) {
     tcaSelect(i);
     float pressure_hPa = mpr.readPressure();
-    Serial.print("Channel "); Serial.print(i); Serial.print(" Pressure (hPa): ");
+    Serial.print("C "); Serial.print(i); Serial.print(" (hPa): ");
     Serial.println(pressure_hPa);
-    delay(1000); // Delay between sensor reads
-    yield();
   }
+  unsigned long endTime = millis();
+  Serial.println("(ms): ");
+  Serial.println(startTime);
+  Serial.println(endTime);
   
 }
